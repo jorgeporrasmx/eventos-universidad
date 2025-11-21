@@ -71,7 +71,7 @@ export default function NuevaSolicitudPage() {
 
   // Sugerir departamentos según el tipo de evento (solo para eventos)
   useEffect(() => {
-    if (tipo && tipo !== '' && categoria === 'evento') {
+    if (tipo && categoria === 'evento') {
       const tipoConfig = TIPOS_EVENTO[tipo as TipoEvento]
       if (tipoConfig) {
         setDepartamentosSeleccionados(tipoConfig.departamentosDefault)
