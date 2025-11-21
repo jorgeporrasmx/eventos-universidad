@@ -145,6 +145,8 @@ export interface Cotizacion {
 // SOLICITUD PRINCIPAL
 // ============================================================================
 
+export type TipoImpacto = 'marketing' | 'ingresos_externos' | 'ambos'
+
 export interface Solicitud {
   id: string
   titulo: string
