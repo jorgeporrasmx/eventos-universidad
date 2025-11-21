@@ -1,6 +1,6 @@
 import { create } from 'zustand'
 import { persist } from 'zustand/middleware'
-import type { Usuario, Solicitud, Notificacion, Requerimientos, Aprobacion } from './types'
+import type { Usuario, Solicitud, Notificacion, Requerimientos, Aprobacion, EstadoSolicitud } from './types'
 import { generarCotizacion } from './cotizador'
 
 interface AppStore {
@@ -203,7 +203,7 @@ export const useStore = create<AppStore>()(
         return {
           solicitudes: state.solicitudes.map((s) => {
             if (s.id === solicitudId) {
-              let nuevoEstado = 'cotizacion_generada' as const
+              let nuevoEstado: EstadoSolicitud = 'cotizacion_generada'
 
               // Si requiere aprobación especial, cambiar estado
               if (cotizacion.recomendacion === 'requiere_aprobacion_especial') {
